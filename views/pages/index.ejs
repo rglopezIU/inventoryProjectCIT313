@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/menu') %>
+
+    <div class="p-4 bg-light text-secondary rounded">
+        <h1><%= title %></h1>
+    </div>
+    <br>
+        <div class="row">
+            <% data.forEach((clothing, index) => { %> 
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <!-- Image for each clothing article -->
+                            <img src="<%= clothing.image %>" alt="<%= clothing.type %>" class="clothing-image mb-2">
+
+                            <h5 class="card-title"><%= clothing.type %></h5>
+                            <p class="card-text">
+                                <strong>Color:</strong> <%= clothing.color %><br>
+                                <strong>Cost:</strong> $<%= clothing.cost.toFixed(2) %><br>
+                                <strong>Brand:</strong> <%= clothing.brand %><br>
+                                <strong>Sex:</strong> <%= clothing.sex === 'M' ? 'Men' : 'Women' %>
+                            </p>
+                            <!-- Modal button for Available/Out of Stock -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<%= index %>">
+                                Check Availability
+                            </button>
+                            
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <!-- Modal Section for button on items -->
+        <% data.forEach((clothing, index) => { %>
+            <div class="modal fade" id="modal<%= index %>" tabindex="-1" aria-labelledby="modalLabel<%= index %>" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalLabel<%= index %>"><%= clothing.type %> - <%= clothing.brand %></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Color:</strong> <%= clothing.color %></p>
+                            <p><strong>Cost:</strong> $<%= clothing.cost.toFixed(2) %></p>
+                            <p><strong>Brand:</strong> <%= clothing.brand %></p>
+                            <p><strong>Status:</strong> 
+                                <% if (clothing.available) { %>
+                                    This item is <span class="badge bg-success">Available</span>.
+                                <% } else { %>
+                                    This item is <span class="badge bg-danger">Out of Stock</span>.
+                                <% } %>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+
+    </main>
+    <br>
+    <br>
+    <br>
+
+    <%- include('../partials/footer') %>
+
+    <!-- Bootstrap JS for modal functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* Set the entire background to a nice tan */
+body {
+    background-color:gray !important;
+    color: #333; 
+}
+
+/* Ensure content containers have contrasting background */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* clothing images size */
+.clothing-image {
+    max-width: 250px;
+    max-height: 250px;
+    width: 100%; 
+    height: auto;
+    object-fit: cover; 
+}

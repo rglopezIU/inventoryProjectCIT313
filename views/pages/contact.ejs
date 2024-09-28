@@ -1,0 +1,52 @@
+<%- include('../partials/head.ejs') %>
+
+<%- include('../partials/menu.ejs') %>
+
+<div class="p-4 bg-light text-secondary rounded">
+    <h1><%= title %></h1>
+</div>
+
+<div class="container mt-4">
+    <h2>Get in Touch</h2>
+    <p>
+        We would love to hear from you! Whether you have a question, feedback, or need assistance, feel free to reach out to us.
+    </p>
+
+    <h2>Contact Information</h2>
+    <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@clothingstore.com">info@clothingstore.com</a></li>
+        <li><strong>Phone:</strong> +1 (234) 567-8901</li>
+        <li><strong>Address:</strong> 123 Fashion Street, Style City, ST 12345</li>
+    </ul>
+
+    <h2>Follow Us</h2>
+    <p>
+        Stay connected with us on social media for the latest news and updates:
+    </p>
+    <ul>
+        <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+        <li><a href="https://www.twitter.com/" target="_blank">Twitter</a></li>
+    </ul>
+
+    <h2>Contact Form</h2>
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<%- include('../partials/footer.ejs') %>
